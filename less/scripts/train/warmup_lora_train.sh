@@ -18,6 +18,7 @@ train_files=("$data_dir/train/processed/flan_v2/flan_v2_data.jsonl"
     "$data_dir/train/processed/dolly/dolly_data.jsonl"
 "$data_dir/train/processed/oasst1/oasst1_data.jsonl")
 
+
 # use fsdp for large models
 if [[ $model_path == "meta-llama/Llama-2-13b-hf" ]]; then
     base_training_args="$base_training_args --fsdp 'full_shard auto_wrap' --fsdp_config llama2_13b_finetune"

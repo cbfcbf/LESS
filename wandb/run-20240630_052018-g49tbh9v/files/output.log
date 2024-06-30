@@ -1,0 +1,32 @@
+
+  0%|                                                                                                                          | 0/1244 [00:00<?, ?it/s][WARNING|logging.py:314] 2024-06-30 05:20:27,554 >> You're using a LlamaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/miniconda3/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/root/LESS/less/train/train.py", line 178, in <module>
+    main()
+  File "/root/LESS/less/train/train.py", line 158, in main
+    train_result = trainer.train()
+  File "/root/miniconda3/lib/python3.10/site-packages/transformers/trainer.py", line 1537, in train
+    return inner_training_loop(
+  File "/root/miniconda3/lib/python3.10/site-packages/transformers/trainer.py", line 1854, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/root/miniconda3/lib/python3.10/site-packages/transformers/trainer.py", line 2744, in training_step
+    self.accelerator.backward(loss)
+  File "/root/miniconda3/lib/python3.10/site-packages/accelerate/accelerator.py", line 2134, in backward
+    loss.backward(**kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_tensor.py", line 492, in backward
+    torch.autograd.backward(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/autograd/__init__.py", line 251, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/fsdp/_runtime_utils.py", line 784, in _post_backward_hook
+    _reduce_grad_no_shard(state, handle)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/fsdp/_runtime_utils.py", line 940, in _reduce_grad_no_shard
+    _cast_grad_to_param_dtype(state, flat_param.grad, flat_param)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/fsdp/_runtime_utils.py", line 1041, in _cast_grad_to_param_dtype
+    sharded_grad.data = sharded_grad.data.to(dtype=param.dtype)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 774.00 MiB. GPU 0 has a total capacty of 39.56 GiB of which 654.81 MiB is free. Process 859385 has 38.92 GiB memory in use. Of the allocated memory 37.31 GiB is allocated by PyTorch, and 971.16 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
