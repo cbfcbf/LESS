@@ -8,7 +8,7 @@ JOB_NAME=llama2-7b-p${PERCENTAGE}-lora-seed${DATA_SEED}
 ./less/scripts/train/warmup_lora_train.sh "$DATA_DIR" "$MODEL_PATH" "$PERCENTAGE" "$DATA_SEED" "$JOB_NAME"
 
 
-HF_TOKEN=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
+# HF_TOKEN=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
 
 
 HF_HOME=/root/autodl-tmp/cache/
